@@ -1,1 +1,7 @@
-	Redirect 301 / http://telepubl.ru/
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} robots.txt$ [NC]
+RewriteRule ^([^/]+) $1 [L]
+RewriteCond %{HTTP_HOST} ^(www\.)?uarticle\.ru$
+RewriteRule ^(.*)$ http://www.telepubl.ru/$1 [R=301,L]
+</IfModule>
